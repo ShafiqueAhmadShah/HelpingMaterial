@@ -1,0 +1,449 @@
+# C# Notes Complete
+
+- [ ] **What is C# ?** 
+- [ ] C# is a multi-threaded, synchronous programming language widely used for building mobile, web, and desktop applications. It is a general-purpose, type-safe language that supports both object-oriented programming (OOP) and functional programming paradigms, offering flexibility and robustness for various software development needs.
+-
+- [ ] **What is CLR ?**
+- [ ] The Common Language Runtime (CLR) manages code execution and memory in .NET applications. When Developer Writes C# code in editor compilor compiled it into Microsoft Intermediate Language (MSIL), then the Just-In-Time (JIT) compiler converts MSIL into machine code for execution, ensuring efficient performance and memory management.
+-
+- [ ] **What is namespace ?**
+- [ ] A namespace is used to organize code by grouping related classes, structs, delegates, and other types together, helping to prevent naming conflicts and improve code manageability.
+-
+
+<!---->
+
+- **Escape sequences** Escape sequences (e.g., \n, \t, \\\\) are used to represent special characters in strings, such as newlines, tabs, or backslashes.
+- **Verbatim literals** Verbatim string literals (using @" ") allow you to include special characters, such as backslashes, in strings without needing escape sequences. Everything is printed as-is.
+
+<!---->
+
+-
+- [ ] **Types conversion ?**
+  1. **Implicit Conversion / Boxing**
+
+     Implicit conversion occurs automatically when there is no risk of data loss, such as converting from a smaller type to a larger type (e.g., char to string, int to float). 
+  2. **Explicate Conversion / Unboxing:** 
+
+     Explicit conversion is required when converting from a larger type to a smaller type, where data loss might occur. For example
+     - **string c = "10.20";** 
+     - **int b = int.Parse(c);** 
+     - **string Str = Convert.ToString(c);**
+- [ ] **Data Types in C#:**
+  - **int** – Represents 32-bit integers (e.g., int number = 10;).
+  - **char** – Represents a single character (e.g., char letter = 'A';).
+  - **string** – Represents a sequence of characters (e.g., string name = "John";).
+  - **bool** – Represents a Boolean value, either true or false (e.g., bool isTrue = true;).
+  - **decimal** – Represents a high-precision decimal number, typically used for financial calculations (e.g., decimal price = 10.99m;).
+  - **float** – Represents a 32-bit floating-point number (e.g., float temperature = 23.5f;).
+  - **double** – Represents a 64-bit floating-point number, offering more precision than float (e.g., double distance = 12345.6789;).
+  - **long** – Represents a 64-bit integer (e.g., long population = 7000000000;).
+  - **short** – Represents a 16-bit integer (e.g., short age = 25;).
+
+
+- [ ] **Operators in C# :**
+  1. **Mathimatical Operators** : + , - , \* , / , %
+  2. **Relational** **Operators** : == , != , <= , >= , ! , > , <
+  3. **Assignment Operator** : = , += , -+ , /= , \*=
+  4. **Logical Operators** : && , ||
+  5. **Unary Operator :**  ++ , -- , (**for single values** : + , - , ! , / )
+  6. **Ternary Operator  :**   ?  it works like if else but with single line
+- [ ] **Statement in C# :**
+  1. **Declaration Statement:** ( int maxValue = 55; ) declare and initialized.
+  2. **Expression Statement:**  ( area = 3.14 \* radius \* radius; ) some functionality.
+  3. **Selection Statements:** (if...else, switch)
+  4. **Iteration Statements:** (do, while, for, foreach)
+  5. **Jump Statements:** (break, continue, goto, return, yield)
+  6. ***Exception Handling*** **Statements:** (throw, try-catch, try-catch-finally)
+
+
+
+- [ ] **Type of arrays ?**
+  1. **Single dimensional arrays** 
+  2. **Multi dimensional arrays** 
+     1. **Rectangular array**
+
+        This is two dimensional array syntax like int\[,] myarray = new int\[3, 4]
+     2. **jagged array**
+
+        known to be arrays of arrays where we fixed the length of rows but not columns like  int\[]\[] myarray = new int\[3]\[];
+- [ ] **Types of Methods ?**
+  1. **Stateful or Instance method**
+
+     Instance methods maintain information about the specific instance of a class. They are called using an object created from the class. Example:
+
+                   **MyClass obj = new MyClass();** 
+
+                   **obj.InstanceMethod();**
+
+
+  2. **Stateless or Static method**
+
+     Static methods do not depend on any instance of the class and can be called directly using the class name, without creating an object. Example:
+
+                  **MyClass.StaticMethod();**
+-
+- [ ] **Method argument vs method parameters ?** 
+  - [ ] Values passed to method these values are called **method** **arguments** and method variables that accept these values are called **method parameters.**
+  -
+-
+- [ ] **Value type vs Reference type?** 
+  - [ ] In value type variable along with it value store in stack and in refernce type variable reference store in stack and its value store in heap 
+-
+- [ ] **PassByValuee & PassByReference  ​& PassByOut ?**
+-
+- [ ] In **Pass by Value**, the function operates on a **copy** of the original variable. Changes made within the function do **not** affect the original variable.
+-
+- [ ] In **Pass by Reference**, the function works with the **actual variable** passed as an argument. Changes made inside the function will affect the original variable because the function operates on the variable’s memory location, not a copy . 
+-
+- [ ] The **out keyword** is used when the function is expected to **set** or **initialize** a variable. The variable passed to the function does not need to be initialized before the function call, but it **must** be assigned a value inside the function.
+-
+- [ ] **Var and Dynamic word Difference ?**
+  -
+
+  <!---->
+
+  - **var** determines the type of a variable at **compile time** and cannot change its type after it's assigned. It must be initialized immediately, and the assigned value cannot be null unless using a nullable type.
+  - **dynamic** determines the type at **runtime** and allows you to change the variable's type later. It can be passed as a function parameter, returned from a function, and can be initialized with null.
+-
+- [ ] **Classes and Objects** 
+  - A **class** is a blueprint for creating objects. It defines the common properties and methods that the objects will have.
+  - An **object** is an actual instance of a class with its own data and behavior. Each object has its own **identity** (it’s unique), **behavior** (what it can do via methods), and **state** (its current data values).
+
+    By using classes and objects, you can organize your code better, avoid repetition, and make it easier to maintain and scale your programs.
+-
+- [ ] **What is Constructor ?** 
+  - [ ] Constructor is special type method that is used to create object . its name is same like the name of class . 
+-
+[ ]   - [ ] **What is Constructor overloading ?**
+  - [ ] Constructor overloading is the creation of multiple constructors within the same class, each having a different set of parameters. The appropriate constructor is selected at runtime based on the number and type of arguments passed. This allows flexibility in initializing objects. It's a form of method overloading. 
+-
+- [ ] **Types of constructors :** 
+  1. **Default Constructor:** The default constructor is a parameterless constructor that is automatically called when an object of the class is created. If no constructor is explicitly defined, the compiler provides a default one.
+  2. **Parameterized Constructor**: A parameterized constructor accepts arguments when an object is created, allowing different initialization values for each object.
+  3. **Static Constructor:** A static constructor is parameterless and is called only once, before the creation of the first object. It initializes static members of the class and cannot be called directly. A class can have only one static constructor, and it is invoked automatically. dont use any specifier before this constructor.
+  4. **Copy Constructor:** A copy constructor creates a new object by copying the values from another existing object of the same class. It is typically used for object duplication.
+  5. **Private Constructor:** A private constructor is used when you want to prevent object creation from outside the class or when the class contains only static members. It also prevents inheritance by making it inaccessible. we can create object by passing paraterized constuctor but still can not inherit from it.
+-
+- [ ] **Instance and static members ?**
+  - [ ] **Instance member:** Instance members are associated with individual objects of a class. Every time a new object is created, a new copy of the instance members is made for that object. Instance methods and members can be accessed using the object of the class, and they can interact with both static and instance members. These are invoked using the object name.
+  -
+  - [ ] **Static member:** Static members belong to the class itself and are shared across all objects. Only one copy of a static member exists, regardless of how many objects are created. Static methods can only access static members and variables, and instance members cannot be accessed within static methods. For example, in a school with 100,000 students, the school name can be made static since it remains the same for all students. Static members are invoked using the class name.
+-
+- [ ] **What is Static classes ?**
+- [ ] A **static class** can only contain static members, methods, and a static constructor. You cannot create an instance (object) of a static class, nor can it be used as a base class for inheritance. In C#, when a class is declared as static, it is automatically sealed, meaning it cannot be inherited. Static classes are typically used for utility or helper methods that do not need to maintain any instance-specific data.
+-
+- [ ] **what is destructor?**
+- [ ] This refers to a **destructor**, a special type of parameterless method used for the deallocation of memory when an object is no longer in use. A destructor is automatically invoked when an object completes its execution, helping in resource cleanup. It cannot be overloaded, inherited, or explicitly called. In C#, destructors are defined with the class name preceded by a tilde \~classname(){}
+-
+- [ ] **what is inheritance ?** 
+- [ ] **Inheritance** is a process in object-oriented programming where a derived (child) class inherits properties and behaviors (fields and methods) from a parent (base) class. This allows the child class to reuse, extend, or modify the functionality of the parent class, promoting code reuse and a hierarchical class structure.
+-
+- [ ] **Types of inheritance?** 
+  - [ ] **Single Level Inheritance** 
+    - [ ] Single-level inheritance involves one base class and one child class. The child class directly inherits properties and methods from the base class.
+  - [ ] **Multi Level Inheritance** 
+    - [ ] In multi-level inheritance, a class is derived from another derived class. For example, Class B is inherited from Class A, and Class C is inherited from Class B, forming a chain like Grandparent to Parent to Child.
+  - [ ] **Hierarchal Inheritance**
+    - [ ] In hierarchical inheritance, multiple child classes inherit from a single base class. The base class serves as the parent for several derived classes.
+  - [ ] **Multiple Inheritance (Using Interfaces)**
+    - [ ] C# supports multiple inheritance through interfaces, allowing a class to inherit from one base class and implement multiple interfaces.
+-
+- [ ] **Constructor Role in Inheritance ?**
+- [ ] when we create an object from the child class. constructor called for all parent classes.  child construct has a base class keyword that is automatically prefixed with a child class. child constructor gives the priority to the parent class constructor. that why the constructor of the parent class executes first and then calls the child class constructor. if our parent class constructor accepts parameter then we can also perform it from a child constructor like  **Public Child (): base("name") {}** 
+-
+- [ ] **What are access modifiers?**
+- [ ] They are used to give boundaries to classes, methods, or variables. there are 4 access modifiers.  Mostly we use internal and public with classes in C#. if we don't specify the access modifier with a member of methods of class then they are private. but if we don't specify with class. the class will be internal by default.
+  -
+  - [ ] **Public**
+  - [ ] we can access public members any where in application even from different assembly or namespace that is using a reference of different namespace assembly. 
+  - [ ] **Private**
+  - [ ] private member is accessible only in the same class.  we cant access it even using inheritance.
+  - [ ] **Internal** 
+  - [ ] it can only be accessible in the same project using object and inheritance. but not out of assembly even using reference or inheritance we can not access them.
+  - [ ] **Protected**
+  - [ ] we can not access this member by making objects in another class. It's accessible only in the same class or a derived class even though the derived class is in another assemble / namespace. but using an object we can not access in the same project or from another assembly. 
+-
+- [ ] **What is Encapsulation?**
+- [ ] Encapsulation is the process of bundling data (variables) and methods that operate on the data into a single unit, typically a class. In encapsulation, class variables are made private to restrict direct access from outside the class. Instead, public properties or methods are provided to access or modify these private variables. This ensures controlled access and protects the integrity of the data, a concept also known as **data hiding**.
+-
+[ ]   1. **What are Properties in C# ?**
+
+     Properties in C# provide a way to interact with class variables by allowing controlled access through **get** and **set** accessors. Unlike functions, properties do not take parameters and dont have return value, and their main role is to get or set values of class fields. Properties can be:
+     - **Read-only** (only get is defined)
+     - **Write-only** (only set is defined)
+     - **Read-write** (both get and set are defined)
+     - **Auto-implemented properties** (with automatic get and set without custom logic)
+  -
+  - [ ] **Properties can be Instanced Properties and Static Properties.**
+
+  <!---->
+
+  - **Instance properties** work with individual objects and can access both static and instance members.
+  - **Static properties** belong to the class itself and can only interact with static members. These are accessed using the class name.
+-
+- [ ] **What is Polymorphism?** 
+  - [ ] **Polymorphism** in object-oriented programming refers to the ability of an object to take on many forms. It allows a single method, operator, or object to behave differently based on the context. A common real-world analogy is a person who can be a teacher, father, or businessman—assuming different roles in different situations.
+  - [ ] **Static Polymorphism / Early Binding  / Compile time polymorphism / Static Binding**
+    1. **Method/Function Overloading**
+
+       This is a concept where same-name functions can be made in the same class just the parameter list length/parameter types should be different.
+    2. **Operator Overloading**
+
+       is type of function that is used to overload the properties of built-in operators. suppose we want to concat two objects of class. we can not do it with the + operator. so we need to use the concept of operator overloading here. operator overloading works only with user-defined data types.
+  - [ ] **Dynamic Polymorphism /  Run time Polymorphism**
+  -   [ ] 1.   **Method Overriding**
+    - [ ] this is the concept of run time polymorphism when the base class and child class have the same method name. we put **virtual** in the front of the base class method and **override** with the child class method. so in this way, our child class method runs. so if we want to run the base class method, we need to call the base class method through the child class method using **base.methodname()**; 
+-
+- [ ] **What is Method Hiding?** 
+  - [ ] This concept is used in inheritance. when the same name function exists in the parent class and child class, then the compiler by default runs the child class method and hides the process of the parent class. we use a **new keyword** with the function of the child class. if we want to call the function of the parent class then we can do it using base keyword or casting of method.
+-
+- [ ] **Method Hiding vs Method Overriding**
+- [ ] \*\* The difference between method hiding and method overloading is that when we create the object of child class but with the reference of parent class like **parent class c = new child class**  and then call the method using this object method overriding still shows the child class method but method hiding will show parent in this case
+-
+- [ ] **What is Sealed Class?**
+- [ ] it is used when we want any other class that cannot inherit from this class. we use a sealed keyword before the class declaration. it's used when we want to store sensitive information or methods in class that should be hidden from outside. 
+-
+- [ ] **What is the sealed method ?**
+- [ ] when we override the method using virtual and override, if we write sealed with an override method, no method can override this method again. 
+-
+- [ ] **What is Indexer ?**
+- [ ] The indexer is a member of the class. its syntax is the same as the property. It is an object that works with arrays and lists to store and retrieve data like properties but its a new concept with more powers. it should have one parameter else it will through an error. this is created with this keywork.  when we call it we just need to put \[] in the front of object . object understand its pointing to indexer like obj\[0] = "Shafique"
+-
+- [ ] **What are Delegates ?** 
+- [ ] Delegates are reference types with no body these are also called function pointers used to point functions. when we don't want to call our function directly we make delegates for them and pass a function reference to them. so delegates call the function on behalf of us. this concept is used to encapsulate methods. 
+- [ ] **Single Cast Delegate:** One delegate points to only one method  
+- [ ] **Multiple Delegates:**  Multiple delegates can be in class we call them according to need.
+- [ ] **Multi Cast Delegates:** only one delegate but working for multiple references. 
+-
+- [ ] **What is an Anonymous function?**
+- [ ] A special type of function that works with delegates. because **Anonymous** does not have a name and return type, we use the delegate reference to point out this function. we can pass this function as a parameter. these are commonly used in event handling  and callback functionality.
+-
+- [ ] **What is lambda expression  ?** 
+- [ ] it's the same as the **Anonymous function** but its syntax is easy to read and write it uses => after method parenthesis. it can return value. It also used delegates obj references. 
+-
+- [ ] **What is Abstraction ?**
+- [ ] abstraction is a technique in which we show only necessary details outside the class. If Class B wants to use Class a's methods, we only show the methods that Class B needs. we give only the implementation by using class b to get the result, we will not give access of the whole method or class properties . we hide some properties called encapsulation and show only necessary details called abstraction. these concepts work together. abstraction can be achieved using following points.
+  -
+  1. **Abstract methods**
+
+     abstract methods that are marked as abstract in abstract class. abstract methods have only declaration its body provided by the child class. 
+  2. **Abstract classes**
+
+     In this, we use the abstract keyword with the class declaration. If a class is marked as an abstract class, then we cannot create an object from it. We inherit this class in another class and then work with it. An abstract class can have both abstract and concrete methods. If we declare an abstract method in a non-abstract class, then we must make the class abstract. However, if we use an abstract method in an abstract class, then need give implementation in the child class otherwise, it will show an error. it can have constructor and destructor.
+  3. **Interfaces**.
+
+     An interface is similar to an abstract class but with some differences. An interface cannot have non-abstract or private methods. Interfaces always work with abstract methods without bodies. Additionally, interfaces cannot have variables. Like abstract classes, we implement interfaces. Interfaces are also used for multiple inheritances. The interface can be a child of multiple interfaces but not a class. Interface reference can be created Interfacename i1 = new Classname(). it cannot have a constructor and a destructor. all members of the interface by default abstract we don't need to write it explicitly. 
+
+     **There are two types of interface implementation:**
+     - **Implicit Implementation:**
+
+       When multiple interfaces have different name methods. Object call the methods
+     - **Explicate Implementation:** 
+
+       When multiple interfaces have the same name methods. so the child class implements them. when we create the object here we need to implement explicit calling with the interface using casting or interface reference variable. 
+  4. **Abstract Properties**
+
+     Abstraction can be achieved using properties also. 
+
+
+- [ ] **What are Generics in C#?**
+- [ ] Generics is a concept where we don't specify the return type or parameter type explicitly. Instead, we use a placeholder. For example, public static void \<T>() {}. Within this scope, we use T in place of a data type. The type of values will be determined when the method is called with specific values.
+  - [ ] **Generic Class**
+  - [ ] In this we use Public classname\<T>{} so now the class can accept any type values. we tell the type when we create the object and pass the argument. 
+-
+- [ ] **What are Collections?** 
+- [ ] Collections are similar to arrays for storing data, but with additional features. Unlike arrays, collections allow you to add or remove values in the middle of the collection. Collections can also be resized and can store different data types of values within the same collection. Additionally, collections contain methods for various operations, making them more versatile and powerful than arrays.
+
+
+
+  **What is Boxing and Unboxing?**
+
+  when we convert value type to reference type this concept called boxing but when we convert reference type to value type its called unboxing.
+
+  **Types of Collections**
+  1. **Non-Generic Collections**
+
+     Non-generic collections do not enforce type safety. They can hold elements of any type, but this can lead to runtime errors if the wrong type is added. 
+
+     Common methods : Contains() , Count() , Clear()
+     - **ArrayList:** it has already key defined as index it can store any data type value.
+     - **Hashtable:** In this, we need to define the key and also pair. then we can access the value using a key. Keys cannot be duplicated.
+     - **Queue:**  It is used to store collections it follows the FIFO style we use ENQUEUE and DEDUEUE for inserting and deleting and PEEK for retrieving the data.  
+     - **Stack :** It is used to store data it uses the push and pop peak method to store remove and retrieve the data. stack can store duplicate values and it follows LIFO style.
+  2. **Generic Collections**
+
+     A Generic collection provides the type safety without derivation from a basic collection type and the implementation of type-specific members. The Generic Collection classes are found in the namespace "System.Collections.Generics." Internally, Generic Collections store elements in arrays of their respective types.
+     - **List\<T>**
+
+     Its type safe collection list that is used to store data of same type that is mentioned in brackets. it contain methods like find() , findlast(), findall(), clear() , insert() , add(), contains() , indexat(), indexof(), insertrange() , addrange(),
+     - **Dictionary\<T Key, T Value>**
+
+     It stores values in key pairs form.  it is type safe collection
+     - **Queue\<T>**
+     - **Stack\<T>**
+
+
+
+1. **What is Exception ?**
+
+   An **exception** is an event that occurs during program execution, disrupting the normal flow of the application. Without exception handling, an unhandled exception will terminate the program.
+
+   In C#, a try block can have multiple catch blocks to handle different exceptions and one finally block for cleanup operations.
+
+   The Exception class is the base class for all exceptions, providing a standard way to handle errors across different types.
+
+
+2. **Partial Class ?**
+
+   when we divide the code of our class into multiple file using the same name but we put partial keyword with all class that contains the code of the same class . C# compiler compile the code and execute the entire class code.
+
+
+3. **Params in C# ?**
+
+   Params are use when we dont idea the length of parameter that passed in function . so using params we can pass array of parameters in it.
+
+
+
+1. **Difference between String and StringBuilder ?**
+
+   when we concate or made any changes in string . string generate new copy in heap with each change stringBuilder overchome this issue it do not generate new copy each time . stringbuilder have append , insert , remove and replace methods etc
+2. **Multi Threading ?**
+
+   A **thread** is a unit of execution within a process. In C#, you can create and manage multiple threads to perform different tasks simultaneously. This is useful when you want your application to be more responsive and efficient. by default program have one main thread it execute automaticlly
+
+
+3. **Extention Methods ?**
+
+   A **thread** is a unit of execution within a process. In C#, you can create and manage multiple threads to perform different tasks simultaneously. This is useful when you want your application to be more responsive and efficient. by default program have one main thread it execute automaticlly
+
+
+
+1. **What are Structures ?**
+
+   In C#, struct and class are user-defined data types with distinct behaviors. A struct is a value type stored typically on the stack, while a class is a reference type allocated on the heap. Unlike class instances, struct instances can be created without explicitly calling a constructor. Starting with C# 10, struct types can define parameterless constructors. struct types can implement interfaces but do not support inheritance from other structs or classes, though they implicitly derive from System.ValueType. In contrast, class types support full inheritance and polymorphism.
+2. **File Handling in C#**
+
+   File handling allows you to perform operations like creating, reading, writing, and deleting files. It helps you manipulate file contents efficiently using the File class from the System.IO namespace. The methods provided by this class are useful for quickly interacting with files in a static manner without the need for object instantiation. It provides a simpler, high-level interface to work with file operations compared to streams.
+   - **File.Create()**: This method creates a new file. If the file already exists, it will overwrite the existing file.
+   - **File.Delete()**: Deletes the specified file, provided it exists.
+   - **File.Exists()**: Checks whether the file at the specified path exists and returns a boolean value.
+   - **File.ReadAllText()**: Reads the entire content of a file and returns it as a string. This method is useful for smaller text files.
+   - **File.WriteAllText()**: Writes a string to a file, creating or overwriting it if it already exists.
+   - **File.AppendAllText()**: Appends the specified string to an existing file. If the file does not exist, it creates a new file and then appends the text.
+- ~~~~
+1. **Directory Handling in C#**
+
+   Directory handling allows you to create, delete, and manage directories and subdirectories on your file system. The Directory and DirectoryInfo classes from the System.IO namespace provide methods to perform these operations. They help manage and organize files into folders, creating a hierarchical structure on the file system.
+   - **Directory.CreateDirectory()**: Creates a new directory at the specified path, including all necessary subdirectories.
+   - **Directory.Delete()**: Deletes the specified directory. If the directory is not empty, you can specify whether to delete the directory and its contents recursively.
+   - **Directory.Exists()**: Checks if a directory exists at the specified path and returns a boolean indicating its presence.
+   - **Directory.GetFiles()**: Returns an array of file names in the specified directory.
+   - **Directory.GetDirectories()**: Returns an array containing the names of subdirectories in a specified directory.
+- ~~~~
+1. **StreamReader & StreamWriter   in C#**
+   1. **StreamReader :** StreamReader is used to read text from a file or a stream in a sequential manner. It is ideal for scenarios where you need to process a text file line by line or read it all at once while keeping memory usage efficient. StreamReader provides more control over reading operations compared to simpler methods in the File class.
+   - **ReadLine()**: Reads a line of characters from the input stream and returns the data as a string. It reads until a newline character is encountered.
+   - **ReadToEnd()**: Reads all characters from the current position to the end of the stream and returns them as a single string.
+   1. **StreamWriter :** StreamWriter is used to write text to a file or a stream. It allows you to create or modify files with precise control over the output content. This class is useful for writing data to text files, either by creating new files or appending to existing ones, using streams for efficient input/output operations.
+   - **Write()**: Writes data to the stream without appending a newline character.
+   - **WriteLine()**: Writes data to the stream followed by a newline character. This is useful for writing lines of text, as it automatically inserts the correct line terminator based on the environment.
+
+
+
+1. **GUID in C# ?**
+
+   A **GUID** (Globally Unique Identifier) in C# is a 128-bit value that is used to uniquely identify information in applications. It is commonly used to ensure uniqueness across different systems and networks, making it ideal for use cases like database primary keys, unique user identifiers, or identifiers for objects in distributed systems. GUIDs are highly unlikely to collide due to their large size and randomness, and they can be generated using built-in functions in the System.Guid structure.
+   - **Guid.NewGuid()**: Generates a new unique GUID value.
+   - **ToString()**: Converts the GUID to its string representation, which can be displayed in various formats.
+   - **Equals(Guid)**: Compares two GUIDs to determine whether they are equal.
+   - **Parse(string)**: Converts a string representation of a GUID to a Guid object.
+   - **TryParse(string, out Guid result)**: Attempts to convert a string to a Guid object and returns a boolean indicating whether the conversion succeeded.
+2. **Is and AS Keyword ?**
+
+   The **is** and **as** keywords in C# are used for type checking and type casting operations. These keywords are particularly helpful when you need to determine the compatibility of an object with a particular type or safely convert an object to a different type without throwing exceptions.
+   1. **is Keyword**
+
+      The is keyword checks if an object is of a specified type. It returns a boolean value indicating whether the object can be cast to that type. This is useful when you want to verify an object's type before performing operations on it.
+      - **Use Case**: Type checking.
+      - **Example Behavior**: object is Type evaluates to true if the object is of the specified type or a derived type
+   2. **As Keyword**
+
+      The as keyword attempts to cast an object to a specified type. If the cast is successful, it returns the object as the new type; otherwise, it returns null without throwing an exception. This makes it a safe casting operator, particularly useful when dealing with reference types or nullable types.
+      - **Use Case**: Safe type conversion.
+      - **Example Behavior**: object as Type will return the object if it can be cast to the specified type, otherwise it returns null. This approach avoids exceptions that may occur with regular casting.
+   3. **Null Colease Operator**
+
+      The **null-coalescing operator (??)** in C# is used to provide a default value when dealing with nullable types or potentially null values. It simplifies code by eliminating the need for explicit if checks to determine whether a value is null. If the value on the left-hand side of the operator is null, the value on the right-hand side is returned as a fallback.
+      - **Syntax**: value ?? defaultValue
+      - The operator evaluates the left-hand side. If it is not null, that value is returned. If it is null, the right-hand side value (defaultValue) is returned instead.
+      - This operator is particularly useful when working with nullable reference types, nullable value types, and scenarios where you need to ensure a non-null value is used without complex checks.
+
+
+3. **Serialization & Deserialization ?** 
+   1. **Serialization**  is the process of converting an object into a format that can be easily stored or transmitted, such as JSON, XML, or a binary format. This is useful when you want to save the state of an object to a file, send it across a network, or store it in a database. During serialization, the object’s data is transformed into a series of bytes that represent its state, which can later be reconstructed through deserialization.
+   2. **Deserialization** is the reverse process of serialization. It takes the serialized data (bytes, JSON, XML, etc.) and converts it back into an object with its original state. This allows you to retrieve and use objects that were previously stored or sent over a network.
+
+      **Common Methods and Uses**
+      - **System.Text.Json.JsonSerializer.Serialize()**: Serializes an object to a JSON string.
+      - **System.Text.Json.JsonSerializer.Deserialize\<T>()**: Deserializes a JSON string into an object of type T.
+      - **System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Serialize()**: Serializes an object to a binary stream.
+      - **System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize()**: Deserializes data from a binary stream back into an object.
+
+        Serialization and deserialization are fundamental in various scenarios, such as web APIs, data persistence, configuration handling, and inter-process communication.
+4. **What is Concrete Class ?**
+
+   A **concrete class** in C# is a class that provides an implementation for all of its methods and can be instantiated to create objects. Unlike abstract classes, which may have abstract methods that need to be overridden by derived classes, concrete classes have full implementations for their members. This makes them suitable for creating instances directly and performing specific functionalities.
+
+   Concrete classes form the backbone of object-oriented programming by providing a clear blueprint that other parts of the application can rely on. They encapsulate data and behavior, offering a well-defined interface for interactions with other objects and parts of the application.
+
+
+5. **What is Tight Coupling and Loose Coupling ?**
+
+   **Tight coupling** means that the modules/components in the codebase are highly dependent on one another. Changes made in one module may heavily affect others.
+
+   **Loose coupling** indicates that modules/components are less dependent on each other. Components communicate through well-defined interfaces, making changes and maintenance easier.**Loose Coupling by implementing Dependency injection.**
+
+   **Loose Coupling acheived by implementing Dependency injection.**
+6. **What is Dependency Injecion ?**
+
+   **Dependency Injection (DI)** is a design pattern used to achieve **loose coupling** between objects and their dependencies. In simple words, **DI is a way to provide an object with the things it needs (its dependencies) instead of the object creating them itself.** This makes the code easier to change, test, and maintain. We use interfaces to implement DI.
+
+   **Dependency injection achieved  by:**
+   1. **Constructor Injection**
+      1. **Define an Interface**: Create an IAccount interface with a method PrintDetails().
+      2. **Create Specific Implementations**:
+         - CurrentAccount class implements IAccount and defines PrintDetails().
+         - SavingAccount class implements IAccount and defines PrintDetails().
+      3. **Inject Dependency in BankAccount**:
+         - Create a BankAccount class that accepts an IAccount object through its constructor.
+         - Use the injected IAccount object to call PrintDetails().
+      4. **Instantiate and Use**:
+         - Create instances of CurrentAccount or SavingAccount.
+         - Pass the instance into the BankAccount constructor to inject the dependency.
+
+      Done! This demonstrates how constructor injection works by passing dependencies to a class when it is created.
+   2. **Method Injection**
+      1. **Define an Interface**: Create an IAccount interface with a method PrintDetails().
+      2. **Create Specific Implementations**:
+         - CurrentAccount class implements IAccount and defines PrintDetails().
+         - SavingAccount class implements IAccount and defines PrintDetails().
+      3. **Inject Dependency via Method**:
+         - Create a BankAccount class with a method SetAccount(IAccount account) to accept an IAccount instance.
+         - Store the injected account in a private field and use it in a method like ShowAccountDetails() to call PrintDetails().
+      4. **Usage**:
+         - Create instances of CurrentAccount or SavingAccount.
+         - Call SetAccount() on the BankAccount instance to inject the dependency before calling other methods.
+   3. **Property Injection**
+      1. **Define an Interface**: Create an IAccount interface with a method PrintDetails().
+      2. **Create Specific Implementations**:
+         - CurrentAccount class implements IAccount and defines PrintDetails().
+         - SavingAccount class implements IAccount and defines PrintDetails().
+      3. **Inject Dependency via Property**:
+         - Create a BankAccount class with a public IAccount property (e.g., public IAccount Account { get; set; }).
+         - In a method like ShowAccountDetails(), use the Account property to call PrintDetails().
+      4. **Usage**:
+         - Create instances of CurrentAccount or SavingAccount.
+         - Assign the instance to the Account property of BankAccount before calling other methods.
+7. **What are ENUM (ENUMERATION)**
+
+   ENUM is special class that is used for group of constant . by default enum have int type and its value type. Enum convert into abstract class behind the scene. we can itterate enums class members

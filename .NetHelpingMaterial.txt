@@ -1,0 +1,53 @@
+--------------------------------------------------
+Model First Approch
+--------------------------------------------------
+
+1. Create Models first 
+2. Add connection string in App.Json 
+
+  "ConnectionStrings": {
+    "DbCon": "Server=SHAFIQUEAHMED-K;Database=AgainModel;Trusted_Connection=True; TrustServerCertificate=True;"
+  },
+
+3. Create DB context Class
+
+  public class Context : DbContext
+  {
+    public Context( DbContextOptions<Context> options ) : base(options) { 
+    
+    }
+
+    DbSet<Category> categories { get; set; }
+    DbSet<Product> products { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.Category)
+            .WithMany(c => c.ProductList)
+            .HasForeignKey(p => p.CategoryId);
+    }
+  }
+	
+
+4. Register DB Context in the Program.cs
+   builder.Services.AddDbContext<MainContext>(o=> o.UseSqlServer( builder.Configuration.GetConnectionString("DbCon")));
+
+5. Install-Package Microsoft.EntityFrameworkCore.Tools         | Use in the Nuget Console or Install in Project Tools |
+6. Add-Migration InitialCreate
+7. Update-Database
+
+
+
+
+
+----------------------------------------------------
+Database First Approch
+----------------------------------------------------
+
+
+----------------------------------------------------
+Other Commands
+----------------------------------------------------
+builder.Services.AddScoped<interface , repository>()      | Use to Registery Repository in the Program.cs |
+
