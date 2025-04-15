@@ -1,15 +1,18 @@
 --------------------------------------------------
-Model First Approch
+Code First Approch
 --------------------------------------------------
-
-1. Create Models first 
+1. Create Models first
 2. Add connection string in App.Json 
 
   "ConnectionStrings": {
     "DbCon": "Server=SHAFIQUEAHMED-K;Database=AgainModel;Trusted_Connection=True; TrustServerCertificate=True;"
   },
 
-3. Create DB context Class
+3.  EntityFrameworkCore
+    EntityFrameworkCore.SqlServer
+    EntityFrameworkCore.Tools
+
+4. Create DB context Class
 
   public class Context : DbContext
   {
@@ -30,21 +33,34 @@ Model First Approch
   }
 	
 
-4. Register DB Context in the Program.cs
+5. Register DB Context in the Program.cs
    builder.Services.AddDbContext<MainContext>(o=> o.UseSqlServer( builder.Configuration.GetConnectionString("DbCon")));
 
-5. Install-Package Microsoft.EntityFrameworkCore.Tools         | Use in the Nuget Console or Install in Project Tools |
-6. Add-Migration InitialCreate
-7. Update-Database
-
-
-
+6. Install-Package Microsoft.EntityFrameworkCore.Tools         | Use in the Nuget Console or Install in Project Tools |
+7. Add-Migration InitialCreate
+8. Update-Database
 
 
 ----------------------------------------------------
 Database First Approch
 ----------------------------------------------------
+1. Database Should be avaiable 
+2. Install EntityFramework.Design
+   Install EntityFramework.SqlServer
+3. Run Commond "dotnet ef dbcontext scaffold "Server=SHAFIQUEAHMED-K\SQLEXPRESS;Database=brandoor;Trusted_Connection=True;Encrypt=False;"    Microsoft.EntityFrameworkCore.SqlServer -o Models" 
+4. Add Connection String "ConnectionStrings": {
+   "DefaultConnection": "Server=SHAFIQUEAHMED-K\\SQLEXPRESS;Database=brandoor;Trusted_Connection=True;Encrypt=False;"
+    },"
+5. Register Connection and DBContext in Program.cs
+   builder.Services.AddDbContext<BrandoorContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+6.  Constractor Injection of the BrandoorContext
+    private readonly BrandoorContext _context;
+    public ProductsController(BrandoorContext context)
+    {
+        _context = context;
+    }
 
 ----------------------------------------------------
 Other Commands
